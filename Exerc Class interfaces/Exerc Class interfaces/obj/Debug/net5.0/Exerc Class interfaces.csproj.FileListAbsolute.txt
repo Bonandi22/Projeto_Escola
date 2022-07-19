@@ -1,0 +1,16 @@
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.csproj.AssemblyReference.cache
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.AssemblyInfoInputs.cache
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.AssemblyInfo.cs
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\bin\Debug\net5.0\Exerc Class interfaces.exe
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\bin\Debug\net5.0\Exerc Class interfaces.deps.json
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\bin\Debug\net5.0\Exerc Class interfaces.runtimeconfig.json
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\bin\Debug\net5.0\Exerc Class interfaces.runtimeconfig.dev.json
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\bin\Debug\net5.0\Exerc Class interfaces.dll
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\bin\Debug\net5.0\Exerc Class interfaces.pdb
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.dll
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\refint\Exerc Class interfaces.dll
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.pdb
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\Exerc Class interfaces.genruntimeconfig.cache
+C:\Users\DELL\Documents\Projetos\Exerc Class interfaces\Exerc Class interfaces\obj\Debug\net5.0\ref\Exerc Class interfaces.dll
