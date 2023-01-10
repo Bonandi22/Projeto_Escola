@@ -10,8 +10,7 @@ namespace Projeto_Escola
         public static Person authenticatedPerson = null;
         public static void Main(string[] args)
         {
-            Screen_Repository screen_Repository = new();
-            
+            Screen_Repository screen_Repository = new();            
             screen_Repository.Init_System();          
             screen_Repository.Finish();
         }          
