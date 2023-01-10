@@ -67,6 +67,7 @@ namespace Projeto_Escola.Repositories
                 Console.WriteLine("# 2 - Delet Teacher                   #");
                 Console.WriteLine("# 3 - List Teacher                    #");
                 Console.WriteLine("# 4 - Register Classes                #");
+                Console.WriteLine("# 5 - Student and Classes             #");
                 Console.WriteLine("# 0 - Sair                            #");
                 Console.WriteLine("#                                     #");
                 Console.WriteLine("#*************************************#");
@@ -83,8 +84,7 @@ namespace Projeto_Escola.Repositories
                 }                
                 switch (escolha)
                 {
-                    case 1:
-                        Data_Connections conection;
+                    case 1:                        
                         Update();
                         break;
                     case 2:
@@ -99,6 +99,9 @@ namespace Projeto_Escola.Repositories
                         break;
                     case 4:
                         New_Subject();
+                        break;
+                    case 5:
+                        Student_Subject();
                         break;
                     case 0:
                         Init_System();
@@ -162,7 +165,7 @@ namespace Projeto_Escola.Repositories
         }
         public void New_Register()
         {
-             Screen_Repository screen_Repository = new();
+            Screen_Repository screen_Repository = new();
             Register_Repository register_repository = new();
             Data_Connections conection = new();
             Console.Clear();
@@ -203,16 +206,18 @@ namespace Projeto_Escola.Repositories
             Console.Clear();
             Console.WriteLine("#*************************************#");
             Console.WriteLine("#                                     #");
-            Console.WriteLine("# ---     Register New Classes    --- #");
+            Console.WriteLine("# --- Register Classes Student    --- #");
             Console.WriteLine("#                                     #");
             Console.WriteLine("#*************************************#");
             Console.WriteLine();
             Console.WriteLine("Favor informar o nome da disciplina");
             string Name = Console.ReadLine();
-            Console.WriteLine("Favor informar o horario da aula (manha, tarde ou noite");
-            string Time = Console.ReadLine();
-            string queryInsert = $"INSERT INTO Subjects (Subjects, Time_Subject)" +
-                     $" Values ('{Name}', '{Time}')";
+            Console.WriteLine("Favor informar a matricula do aluno");
+            string userID = Console.ReadLine();
+            Console.WriteLine("Favor informar o horario (manha, tarde ou noite)");
+            string horario = Console.ReadLine();
+            string queryInsert = $"INSERT INTO Subjects (Subjects, Time_Subject, user_id)" +
+                     $" Values ('{Name}','{horario}', '{userID}')";
             register_repository.User_Register(queryInsert);
             screen_Repository.Menu_Teacher();
         }
@@ -298,8 +303,7 @@ namespace Projeto_Escola.Repositories
             Console.WriteLine("=========================================\n");
             Console.WriteLine("Obrigado!!! Tenha um bom dia!\n");
             Console.WriteLine("=========================================\n");
-        }
-
+        }             
     }
 
 
