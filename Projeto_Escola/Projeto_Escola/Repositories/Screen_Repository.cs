@@ -55,6 +55,7 @@ namespace Projeto_Escola.Repositories
         }
         public void Menu_Teacher()
         {
+            List_Classes list_Classes = new();
             string opcao = "Teacher";
             int escolha;
             do
@@ -67,7 +68,7 @@ namespace Projeto_Escola.Repositories
                 Console.WriteLine("# 2 - Delet Teacher                   #");
                 Console.WriteLine("# 3 - List Teacher                    #");
                 Console.WriteLine("# 4 - Register Classes                #");
-                Console.WriteLine("# 5 - Student and Classes             #");
+                Console.WriteLine("# 5 - List Student and Classes        #");
                 Console.WriteLine("# 0 - Sair                            #");
                 Console.WriteLine("#                                     #");
                 Console.WriteLine("#*************************************#");
@@ -101,7 +102,7 @@ namespace Projeto_Escola.Repositories
                         New_Subject();
                         break;
                     case 5:
-                        Student_Subject();
+                        list_Classes.List_Subjects();
                         break;
                     case 0:
                         Init_System();
@@ -200,7 +201,7 @@ namespace Projeto_Escola.Repositories
         }
         public void New_Subject()
         {
-            Screen_Repository screen_Repository = new();
+            Screen_Repository screen_Repository = new();            
             Register_Repository register_repository = new();
             Data_Connections conection = new();
             Console.Clear();

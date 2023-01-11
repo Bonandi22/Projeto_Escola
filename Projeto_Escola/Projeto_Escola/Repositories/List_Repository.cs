@@ -23,7 +23,7 @@ namespace Projeto_Escola.Repositories
             try
             {
                 connection.Open();
-                string sql = "SELECT * FROM [User]";
+                string sql = "SELECT * FROM [User] ORDER BY [User].Name";
                 SqlCommand command = new(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -75,7 +75,6 @@ namespace Projeto_Escola.Repositories
             }
             catch (Exception e)
             {
-
                 Console.WriteLine($"Erro: (0) {e.Message}");
             }
             finally
@@ -83,7 +82,7 @@ namespace Projeto_Escola.Repositories
                 connection.Close();
             }
 
-            return usuarios.OrderBy(p => p.Name).ToList(); //ordena a lista de usuarios por nomes
+            return usuarios;
         }
     }
 }

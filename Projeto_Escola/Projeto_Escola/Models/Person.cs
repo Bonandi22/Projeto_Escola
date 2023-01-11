@@ -5,11 +5,11 @@ namespace Projeto_Escola.Models
 {
     public class Person
     {
+      
         public int Id_Person { get; set; }
-
         public string Typee { get; set; }
 
-        public string _name;
+       public string _name;
         public string Name
         {
             get { return _name; }
@@ -75,6 +75,7 @@ namespace Projeto_Escola.Models
         }       
 
         public PersonType PersonType { get; protected set; }
+        
     }      
 
     public enum PersonType

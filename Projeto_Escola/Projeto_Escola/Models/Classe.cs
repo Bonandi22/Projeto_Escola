@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Projeto_Escola.Models
 {
-    internal class Classe
+    public class Classe
     {
         public int ID { get; set; }
         public string Subjects { get; set; }
