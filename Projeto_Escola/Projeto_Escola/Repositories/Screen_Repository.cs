@@ -118,6 +118,7 @@ namespace Projeto_Escola.Repositories
         }
         public void Menu_Student()
         {
+            List_Classes list_Classes = new();
             string opcao = "Student";
             int escolha;
             do
@@ -128,6 +129,7 @@ namespace Projeto_Escola.Repositories
                 Console.WriteLine("#                                      #");
                 Console.WriteLine("# 1 - Update Student                   #");
                 Console.WriteLine("# 2 - List Student                     #");
+                Console.WriteLine("# 3 - List students and classes        #");
                 Console.WriteLine("# 0 - Sair                             #");
                 Console.WriteLine("#                                      #");
                 Console.WriteLine("#**************************************#");
@@ -144,7 +146,6 @@ namespace Projeto_Escola.Repositories
                 switch (escolha)
                 {
                     case 1:
-                        Data_Connections conection;
                         Update();                        
                         break;
                     case 2:
@@ -152,6 +153,12 @@ namespace Projeto_Escola.Repositories
                         Console.WriteLine("                 ");
                         List_Repository list_Repository = new();
                         list_Repository.List_User(opcao);
+                        break;
+                    case 3:
+                        Console.WriteLine("Favor informar o numero de matricula");
+                       int My_Id = int.Parse(Console.ReadLine());
+                        list_Classes.List_Subjects_Student(My_Id);
+
                         break;
                     case 0:
                         Init_System();

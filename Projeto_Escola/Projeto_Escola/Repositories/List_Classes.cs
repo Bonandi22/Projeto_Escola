@@ -22,7 +22,9 @@ namespace Projeto_Escola.Repositories
             try
             {
                 connection.Open();
-                string sql = "SELECT [User].Name, Subjects.Subjects, Subjects.Time_Subject FROM [User] JOIN Subjects ON [User].ID = Subjects.user_id ORDER BY [User].Name";                
+                string sql = "SELECT [User].Name, Subjects.Subjects, Subjects.Time_Subject FROM [User] " +                    
+                    "JOIN Subjects ON [User].ID = Subjects.user_id ORDER BY [User].Name";
+                
                 SqlCommand command = new(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -49,7 +51,7 @@ namespace Projeto_Escola.Repositories
             }
             return usuarios.OrderBy(p => p.ID).ToList(); //ordena a lista de usuarios por nomes
         }
-        public List<Classe> List_Subjects_Student()
+        public List<Classe> List_Subjects_Student(int My_Id)
         {
             Data_Connections conection = new();
             Screen_Repository screen_Repository = new();
@@ -60,13 +62,16 @@ namespace Projeto_Escola.Repositories
             try
             {
                 connection.Open();
-                string sql = "SELECT [User].Name, Subjects.Subjects, Subjects.Time_Subject FROM [User] JOIN Subjects ON [User].ID = Subjects.user_id ORDER BY [User].Name";
+                string sql = "SELECT[User].Name, Subjects.Subjects, Subjects.Time_Subject FROM[User] " +
+                                $"JOIN Subjects ON[User].ID = Subjects.user_id WHERE[User].ID ='{My_Id}'" +                              
+                                "ORDER BY[User].Name";
+                //$"SELECT [User].Name, Subjects.Subjects, Subjects.Time_Subject FROM [User] JOIN Subjects ON [User].ID = Subjects.user_id ORDER BY [User].Name WHERE={My_Id}";
                 SqlCommand command = new(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
                 Console.Clear();
                 Console.WriteLine();
-                Console.WriteLine($"    Student list for Class      ");
+                Console.WriteLine($"    List students and classes      ");
                 Console.WriteLine();
                 var table = new ConsoleTable("Name", "Class", "Time");
                 while (reader.Read())
@@ -88,5 +93,5 @@ namespace Projeto_Escola.Repositories
             return usuarios.OrderBy(p => p.ID).ToList(); //ordena a lista de usuarios por nomes
         }
     }
-    }
 }
+
