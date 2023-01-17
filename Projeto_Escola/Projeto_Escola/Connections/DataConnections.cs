@@ -9,13 +9,13 @@ using Projeto_Escola.Repositories;
 
 namespace Projeto_Escola.Connections
 {
-    internal class Data_Connections
+    internal class DataConnections
     {
         private static string connectionString = @"Server=localhost\MSSQLSERVER02;Database=Scheduler;Trusted_Connection=True;";
 
         private SqlConnection sqlConnection = new(connectionString);
 
-        public static string My_Connection()
+        public static string MyConnection()
         {
             //esse metodo é usado para passar a conexao com o banco de dados.
             return connectionString;
@@ -45,17 +45,18 @@ namespace Projeto_Escola.Connections
                 //cria a person com as propriedades de cada person
                 while (reader.Read())
                 {
-                    var person = new Person();
-
-                    person.Id_Person = Convert.ToInt32(reader["ID"]);
-                    person.Name = Convert.ToString(reader["Name"]);
-                    person.NIF = Convert.ToString(reader["NIF"]);
-                    person.Email = Convert.ToString(reader["Email"]);
-                    person.Adress = Convert.ToString(reader["Adress"]);
-                    person.Phone = Convert.ToString(reader["Phone"]);
-                    person.Username = Convert.ToString(reader["User"]);
-                    person.Password = Convert.ToString(reader["Password"]);
-                    person.Typee = Convert.ToString(reader["Type"]);
+                    Person person = new()
+                    {
+                        Id_Person = Convert.ToInt32(reader["ID"]),
+                        Name = Convert.ToString(reader["Name"]),
+                        NIF = Convert.ToString(reader["NIF"]),
+                        Email = Convert.ToString(reader["Email"]),
+                        Adress = Convert.ToString(reader["Adress"]),
+                        Phone = Convert.ToString(reader["Phone"]),
+                        Username = Convert.ToString(reader["User"]),
+                        Password = Convert.ToString(reader["Password"]),
+                        Typee = Convert.ToString(reader["Type"])
+                    };
 
                     people.Add(person);
                 }
@@ -63,7 +64,7 @@ namespace Projeto_Escola.Connections
 
             catch (Exception e)
             {
-                Screen_Repository screen_Repository = new();
+                ScreenRepository ScreenRepository = new();
                 Console.WriteLine($"Erro: (0) {e.Message}");         
             }
             finally

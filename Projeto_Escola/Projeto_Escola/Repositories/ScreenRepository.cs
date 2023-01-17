@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace Projeto_Escola.Repositories
 {
-    public class Screen_Repository
+    public class ScreenRepository
     {
-        public void Init_System()
+        public void InitSystem()
         {      
             int escolha;
             do {
@@ -17,7 +17,7 @@ namespace Projeto_Escola.Repositories
                 Console.WriteLine("#                                     #");
                 Console.WriteLine("#          --- MAIN MENU ---          #");
                 Console.WriteLine("#                                     #");
-                Console.WriteLine("# 1 - Login                           #");
+                Console.WriteLine("# 1 - login                           #");
                 Console.WriteLine("# 2 - Register                        #");
                 Console.WriteLine("# 0 - Exit                            #");
                 Console.WriteLine("#                                     #");
@@ -38,12 +38,12 @@ namespace Projeto_Escola.Repositories
                        Autentication autentication = new();
                         Console.WriteLine("Enter username ");
                         string User = Console.ReadLine();
-                        Console.WriteLine("Enter Password? ");
+                        Console.WriteLine("Enter password? ");
                         string pass = Console.ReadLine();
                         autentication.Login(User, pass);
                      break;
                     case 2:
-                        New_Register();
+                        NewRegister();
                         break;
                         default:
                             Console.WriteLine("Opção inválida");
@@ -53,9 +53,9 @@ namespace Projeto_Escola.Repositories
                 }
             } while (escolha != 0);
         }
-        public void Menu_Teacher()
+        public void MenuTeacher()
         {
-            List_Classes list_Classes = new();
+            ListClasses listClasses = new();
             string opcao = "Teacher";
             int escolha;
             do
@@ -89,23 +89,23 @@ namespace Projeto_Escola.Repositories
                         Update();
                         break;
                     case 2:
-                        Delet_Repository delet_Repository = new();
-                        delet_Repository.User_Delet();
+                        DeletRepository DeletRepository = new();
+                        DeletRepository.User_Delet();
                         break;
                     case 3:
                         Console.Clear();
                         Console.WriteLine("                 ");
-                        List_Repository list_Repository = new();
-                        list_Repository.List_User(opcao);                        
+                        List_Repository ListRepository = new();
+                        ListRepository.ListUser(opcao);                        
                         break;
                     case 4:
-                        New_Subject();
+                        NewSubject();
                         break;
                     case 5:
-                        list_Classes.List_Subjects();
+                        listClasses.ListSubjects();
                         break;
                     case 0:
-                        Init_System();
+                        InitSystem();
                         break;
                     default:
                         Console.WriteLine("Opção inválida");
@@ -116,9 +116,9 @@ namespace Projeto_Escola.Repositories
 
             } while (escolha != 0);
         }
-        public void Menu_Student()
+        public void MenuStudent()
         {
-            List_Classes list_Classes = new();
+            ListClasses ListClasses = new();
             string opcao = "Student";
             int escolha;
             do
@@ -151,17 +151,17 @@ namespace Projeto_Escola.Repositories
                     case 2:
                         Console.Clear();
                         Console.WriteLine("                 ");
-                        List_Repository list_Repository = new();
-                        list_Repository.List_User(opcao);
+                        List_Repository ListRepository = new();
+                        ListRepository.ListUser(opcao);
                         break;
                     case 3:
                         Console.WriteLine("Favor informar o numero de matricula");
-                       int My_Id = int.Parse(Console.ReadLine());
-                        list_Classes.List_Subjects_Student(My_Id);
+                       int myid = int.Parse(Console.ReadLine());
+                        ListClasses.ListSubjectsStudent(myid);
 
                         break;
                     case 0:
-                        Init_System();
+                        InitSystem();
                         break;
                     default:
                         Console.WriteLine("Opção inválida");
@@ -171,11 +171,11 @@ namespace Projeto_Escola.Repositories
                 }
             } while (escolha != 0);
         }
-        public void New_Register()
+        public void NewRegister()
         {
-            Screen_Repository screen_Repository = new();
-            Register_Repository register_repository = new();
-            Data_Connections conection = new();
+            ScreenRepository ScreenRepository = new();
+            RegisterRepository RegisterRepository = new();
+            DataConnections conection = new();
             Console.Clear();
             Console.WriteLine("#*************************************#");
             Console.WriteLine("#                                     #");
@@ -185,32 +185,32 @@ namespace Projeto_Escola.Repositories
             Console.WriteLine();            
 
             Console.WriteLine("Favor informar o nome completo");
-            string Name = Console.ReadLine();
-            Console.WriteLine("Favor informar o numero de contribuinte - NIF");
-            string NIF = Console.ReadLine();
+            string name = Console.ReadLine();
+            Console.WriteLine("Favor informar o numero de contribuinte - nif");
+            string nif = Console.ReadLine();
             Console.WriteLine("Favor informar E-mail)");
-            string Email = Console.ReadLine();
+            string email = Console.ReadLine();
             Console.WriteLine("Favor informar a morada completa)");
-            string Adress = Console.ReadLine();
+            string adress = Console.ReadLine();
             Console.WriteLine("Favor informar o numero de Telemovel");
-            string Phone = Console.ReadLine();
+            string phone = Console.ReadLine();
             Console.WriteLine("Favor informar o nome de usuario");
-            string Login = Console.ReadLine();
+            string login = Console.ReadLine();
             Console.WriteLine("Favor informar a senha");
-            string Password = Console.ReadLine();
+            string password = Console.ReadLine();
             Console.WriteLine("Favor informar o tipo de usuário (Teacher or Student)");
-            string Type = Console.ReadLine();
-            string queryInsert = $"INSERT INTO [User] (Name, NIF, Email, Adress, Phone, [User], Password, Type )" +
-                                 $" Values ('{Name}', '{NIF}', '{Email}', '{Adress}', '{Phone}', '{Login}', '{Password}', '{Type}')";
+            string type = Console.ReadLine();
+            string queryInsert = $"INSERT INTO [User] (name, nif, email, adress, phone, [User], password, type )" +
+                                 $" Values ('{name}', '{nif}', '{email}', '{adress}', '{phone}', '{login}', '{password}', '{type}')";
 
-            register_repository.User_Register(queryInsert);
-            screen_Repository.Init_System();
+            RegisterRepository.UserRegister(queryInsert);
+            ScreenRepository.InitSystem();
         }
-        public void New_Subject()
+        public void NewSubject()
         {
-            Screen_Repository screen_Repository = new();            
-            Register_Repository register_repository = new();
-            Data_Connections conection = new();
+            ScreenRepository ScreenRepository = new();            
+            RegisterRepository RegisterRepository = new();
+            DataConnections conection = new();
             Console.Clear();
             Console.WriteLine("#*************************************#");
             Console.WriteLine("#                                     #");
@@ -219,20 +219,20 @@ namespace Projeto_Escola.Repositories
             Console.WriteLine("#*************************************#");
             Console.WriteLine();
             Console.WriteLine("Favor informar o nome da disciplina");
-            string Name = Console.ReadLine();
+            string name = Console.ReadLine();
             Console.WriteLine("Favor informar a matricula do aluno");
             string userID = Console.ReadLine();
             Console.WriteLine("Favor informar o horario (manha, tarde ou noite)");
             string horario = Console.ReadLine();
             string queryInsert = $"INSERT INTO Subjects (Subjects, Time_Subject, user_id)" +
-                     $" Values ('{Name}','{horario}', '{userID}')";
-            register_repository.User_Register(queryInsert);
-            screen_Repository.Menu_Teacher();
+                     $" Values ('{name}','{horario}', '{userID}')";
+            RegisterRepository.UserRegister(queryInsert);
+            ScreenRepository.MenuTeacher();
         }
         public void Update()
         {
-            Data_Connections conection = new();
-            Update_Repository update_Repository = new();
+            DataConnections conection = new();
+            UpdateRepository UpdateRepository = new();
             Console.Clear();
             Console.WriteLine("#*************************************#");
             Console.WriteLine("#                                     #");
@@ -240,17 +240,17 @@ namespace Projeto_Escola.Repositories
             Console.WriteLine("#                                     #");
             Console.WriteLine("#*************************************#");
             Console.WriteLine();
-            string NIF_Update;
+            string nif_update;
             do
             {
-                Console.WriteLine("Favor informar o numero de contribuinte - NIF");
-                NIF_Update = Console.ReadLine();
+                Console.WriteLine("Favor informar o numero de contribuinte - nif");
+                nif_update = Console.ReadLine();
 
-                string querySelect = @"SELECT * FROM [User] WHERE NIF = @nif";
+                string querySelect = @"SELECT * FROM [User] WHERE nif = @nif";
 
                 var listSelectParameters = new List<SqlParameter>
                             {
-                                new SqlParameter("@nif", NIF_Update)
+                                new SqlParameter("@nif", nif_update)
                             };
 
                 var people = conection.ExcuteSQLToSelect(querySelect, listSelectParameters);
@@ -259,9 +259,9 @@ namespace Projeto_Escola.Repositories
                     break;
                 }
                     Console.Clear();
-                    Console.WriteLine("Numero de contribuinte - NIF incorreto ");
+                    Console.WriteLine("Numero de contribuinte - nif incorreto ");
                     Console.WriteLine();
-                    Console.WriteLine("       Favor informar NIF valido       ");
+                    Console.WriteLine("       Favor informar nif valido       ");
                     Console.WriteLine();
                     Console.WriteLine("#*************************************#");
                     Console.WriteLine("#                                     #");
@@ -288,11 +288,11 @@ namespace Projeto_Escola.Repositories
             Console.WriteLine("Favor informar o numero de Telemovel");
             person.Phone = Console.ReadLine();
             string queryUpdate = @"UPDATE [User]
-                                                SET Name = @nome,
-                                                     Email = @email, 
-                                                     Adress = @address, 
-                                                     Phone = @phone
-                                                 WHERE NIF = @nif_to_update";
+                                                SET name = @nome,
+                                                     email = @email, 
+                                                     adress = @address, 
+                                                     phone = @phone
+                                                 WHERE nif = @nif_to_update";
 
            var  listUpdateParameters = new List<SqlParameter>
                             {
@@ -300,10 +300,10 @@ namespace Projeto_Escola.Repositories
                                 new SqlParameter("@email", person.Email),
                                 new SqlParameter("@address", person.Adress),
                                 new SqlParameter("@phone", person.Phone),
-                                new SqlParameter("@nif_to_update", NIF_Update)
+                                new SqlParameter("@nif_to_update", nif_update)
                             };
 
-            update_Repository.User_Update(queryUpdate, listUpdateParameters);
+            UpdateRepository.User_Update(queryUpdate, listUpdateParameters);
 
         }
         public  void Finish()

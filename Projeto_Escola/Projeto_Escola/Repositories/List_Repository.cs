@@ -12,11 +12,11 @@ namespace Projeto_Escola.Repositories
 {
     public class List_Repository
     {        
-        public List<Person> List_User(string opcao)
+        public List<Person> ListUser(string opcao)
         {
-            Data_Connections conection = new();
-            Screen_Repository screen_Repository = new();
-            string connectionString = Data_Connections.My_Connection();//passando a conexao com o SQLSERVER
+            DataConnections conection = new();
+            ScreenRepository ScreenRepository = new();
+            string connectionString = DataConnections.MyConnection();//passando a conexao com o SQLSERVER
             SqlConnection connection = new(connectionString);
             List<Person> usuarios = new();          
 

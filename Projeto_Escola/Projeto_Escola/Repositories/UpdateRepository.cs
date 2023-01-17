@@ -5,11 +5,11 @@ using System.Data.SqlClient;
 
 namespace Projeto_Escola.Repositories
 {
-    public class Update_Repository
+    public class UpdateRepository
     {
         public void User_Update(string queryUpdate, List<SqlParameter> listUpdateParameters)
         {
-            Data_Connections conection=new();
+            DataConnections conection=new();
             conection.ExcuteSQLToSelect(queryUpdate, listUpdateParameters);
             Console.WriteLine("Cadastro alterado com sucesso");
             Console.ReadLine();

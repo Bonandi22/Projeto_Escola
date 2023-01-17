@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Projeto_Escola.Repositories
 {
-    public class Classe_Repository
+    public class ClasseRepository
     {
-        public void Class_Student(string queryInsert)
+        public void ClassStudent(string queryInsert)
         {
-            Screen_Repository screen_Repository = new();
-            Data_Connections conection = new();
+            ScreenRepository screenRepository = new();
+            DataConnections conection = new();
             conection.ExcuteSQLToSelect(queryInsert);
 
             Console.WriteLine("Cadastro realizado com sucesso");

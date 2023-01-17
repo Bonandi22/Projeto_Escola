@@ -7,11 +7,11 @@ using Projeto_Escola.Models;
 
 namespace Projeto_Escola.Repositories
 {
-    public class Delet_Repository
+    public class DeletRepository
     {
         public void User_Delet()
         {
-            Data_Connections conection = new();
+            DataConnections conection = new();
             Console.Clear();
             Console.WriteLine("#**************************************#");
             Console.WriteLine("# #");

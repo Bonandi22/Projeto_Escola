@@ -9,13 +9,13 @@ using System.Linq;
 
 namespace Projeto_Escola.Repositories
 {
-    public class List_Classes
+    public class ListClasses
     {
-        public List<Classe> List_Subjects()
+        public List<Classe> ListSubjects()
         {
-            Data_Connections conection = new();
-            Screen_Repository screen_Repository = new();
-            string connectionString = Data_Connections.My_Connection();//passando a conexao com o SQLSERVER
+            DataConnections conection = new();
+            ScreenRepository screenRepository = new();
+            string connectionString = DataConnections.MyConnection();//passando a conexao com o SQLSERVER
             SqlConnection connection = new(connectionString);
             List<Classe> usuarios = new();          
 
@@ -51,11 +51,11 @@ namespace Projeto_Escola.Repositories
             }
             return usuarios.OrderBy(p => p.ID).ToList(); //ordena a lista de usuarios por nomes
         }
-        public List<Classe> List_Subjects_Student(int My_Id)
+        public List<Classe> ListSubjectsStudent(int myid)
         {
-            Data_Connections conection = new();
-            Screen_Repository screen_Repository = new();
-            string connectionString = Data_Connections.My_Connection();//passando a conexao com o SQLSERVER
+            DataConnections conection = new();
+            ScreenRepository ScreenRepository = new();
+            string connectionString = DataConnections.MyConnection();//passando a conexao com o SQLSERVER
             SqlConnection connection = new(connectionString);
             List<Classe> usuarios = new();
 
@@ -63,9 +63,9 @@ namespace Projeto_Escola.Repositories
             {
                 connection.Open();
                 string sql = "SELECT[User].Name, Subjects.Subjects, Subjects.Time_Subject FROM[User] " +
-                                $"JOIN Subjects ON[User].ID = Subjects.user_id WHERE[User].ID ='{My_Id}'" +                              
+                                $"JOIN Subjects ON[User].ID = Subjects.user_id WHERE[User].ID ='{myid}'" +                              
                                 "ORDER BY[User].Name";
-                //$"SELECT [User].Name, Subjects.Subjects, Subjects.Time_Subject FROM [User] JOIN Subjects ON [User].ID = Subjects.user_id ORDER BY [User].Name WHERE={My_Id}";
+                //$"SELECT [User].Name, Subjects.Subjects, Subjects.Time_Subject FROM [User] JOIN Subjects ON [User].ID = Subjects.user_id ORDER BY [User].Name WHERE={myid}";
                 SqlCommand command = new(sql, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
