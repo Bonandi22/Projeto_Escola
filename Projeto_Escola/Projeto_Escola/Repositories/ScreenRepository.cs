@@ -95,7 +95,7 @@ namespace Projeto_Escola.Repositories
                     case 3:
                         Console.Clear();
                         Console.WriteLine("                 ");
-                        List_Repository ListRepository = new();
+                        ListRepository ListRepository = new();
                         ListRepository.ListUser(opcao);                        
                         break;
                     case 4:
@@ -151,7 +151,7 @@ namespace Projeto_Escola.Repositories
                     case 2:
                         Console.Clear();
                         Console.WriteLine("                 ");
-                        List_Repository ListRepository = new();
+                        ListRepository ListRepository = new();
                         ListRepository.ListUser(opcao);
                         break;
                     case 3:

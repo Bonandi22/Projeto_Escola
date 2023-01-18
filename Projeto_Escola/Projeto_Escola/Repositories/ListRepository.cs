@@ -10,7 +10,7 @@ using ConsoleTables;
 
 namespace Projeto_Escola.Repositories
 {
-    public class List_Repository
+    public class ListRepository
     {        
         public List<Person> ListUser(string opcao)
         {
