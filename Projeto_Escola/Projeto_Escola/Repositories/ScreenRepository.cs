@@ -157,6 +157,11 @@ namespace Projeto_Escola.Repositories
                     case 3:
                         Console.WriteLine("Favor informar o numero de matricula");
                        int myid = int.Parse(Console.ReadLine());
+                        Console.Clear();
+                        Console.WriteLine();
+                        Console.WriteLine($"    Student list for Class      ");
+                        Console.WriteLine();
+
                         ListClasses.ListSubjectsStudent(myid);
 
                         break;
