@@ -1,26 +1,25 @@
 ﻿using Projeto_Escola.Connections;
+using Projeto_Escola.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
 
-
 namespace Projeto_Escola.Repositories
 {
-    public class Autentication
+    public class LoginRepository
     {
         public void Login(string username, string password)
         {
             DataConnections conection = new();
             ScreenRepository ScreenRepository = new();
             string connectionString = DataConnections.MyConnection();//passando a conexao com o SQLSERVER
-            SqlConnection connection = new (connectionString);
+            SqlConnection connection = new(connectionString);
 
             try
-            {              
+            {
                 connection.Open();
 
                 string querylogin = "SELECT * FROM [User] WHERE [User]='" + username + "' and password='" + password + "'";
@@ -31,17 +30,27 @@ namespace Projeto_Escola.Repositories
                                 new SqlParameter("@username", username),
                                 new SqlParameter("@password", password)
                             };
+                // conversao da senha para o sistema Hash Cryptography
+                byte[] passwordBytes = Encoding.Default.GetBytes(password);
 
-                ValidLogin(ScreenRepository, command, password); // validacao de login e senha           
+                HashAlgorithm sha = SHA256.Create();
+                byte[] hashBytes = sha.ComputeHash(passwordBytes);
+
+                StringBuilder sb = new();
+
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine($"Erro: (0) {e.Message}");
                 ScreenRepository.InitSystem();
             }
             finally
-            {            
+            {
                 connection.Close();
             }
         }
@@ -49,18 +58,7 @@ namespace Projeto_Escola.Repositories
         {
             SqlDataReader reader = command.ExecuteReader();
 
-            // conversao da senha para o sistema Hash Cryptography
-            byte[] passwordBytes = Encoding.Default.GetBytes(Password);
-
-            HashAlgorithm sha = SHA256.Create();
-            byte[] hashBytes = sha.ComputeHash(passwordBytes);
-
-            StringBuilder sb = new();
-
-            for (int i = 0; i < hashBytes.Length; i++)
-            {
-                sb.Append(hashBytes[i].ToString("X2"));
-            }
+            
             /*Console.WriteLine(sb.ToString());*///para imprimir a senha Cryptography
 
             if (reader.Read())
@@ -101,5 +99,9 @@ namespace Projeto_Escola.Repositories
             }
             Console.Clear();
         }
+
+
+
+
     }
 }

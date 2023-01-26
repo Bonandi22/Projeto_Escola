@@ -4,8 +4,7 @@ using System.Collections.Generic;
 namespace Projeto_Escola.Models
 {
     public class Person
-    {
-      
+    {      
         public int Id_Person { get; set; }
         public string Typee { get; set; }
 
@@ -62,8 +61,7 @@ namespace Projeto_Escola.Models
                     _username = value;
             }
         }
-
-        private string _password;
+        public string _password;
         public string Password
         {
             get { return _password; }
@@ -74,15 +72,22 @@ namespace Projeto_Escola.Models
             }
         }       
 
-        public PersonType PersonType { get; protected set; }
-        
-    }      
-
-    public enum PersonType
-    {
-        Teacher,
-        Student,
-        Name
+public Person() { }
+               
+        public Person(string name, string nif, string email, string adress, string phone, string login, string password)
+        {
+            Name = name;
+            NIF = nif;
+            Email = email;
+            Adress = adress;
+            Phone = phone;
+            Username = login;
+            Password = password;
+        }
     }
-
+    enum PersonType : int
+    {
+        Teacher=1,
+        Student=2,
+    }
 }

@@ -1,9 +1,13 @@
-﻿using Projeto_Escola.Connections;
+﻿using ConsoleTables;
+using Projeto_Escola.Connections;
 using Projeto_Escola.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection.PortableExecutable;
+using Projeto_Escola.Repositories;
+using System.Numerics;
 
 namespace Projeto_Escola.Repositories
 {
@@ -34,14 +38,14 @@ namespace Projeto_Escola.Repositories
                 }
                 switch (escolha)
                 {
-                    case 1:
-                       Autentication autentication = new();
+                    case 1:                       
                         Console.WriteLine("Enter username ");
-                        string User = Console.ReadLine();
+                        string user = Console.ReadLine();
                         Console.WriteLine("Enter password? ");
                         string pass = Console.ReadLine();
-                        autentication.Login(User, pass);
-                     break;
+                        Autentication autentication = new();
+                        autentication.Login(user, pass);
+                        break;
                     case 2:
                         NewRegister();
                         break;
@@ -96,7 +100,7 @@ namespace Projeto_Escola.Repositories
                         Console.Clear();
                         Console.WriteLine("                 ");
                         ListRepository ListRepository = new();
-                        ListRepository.ListUser(opcao);                        
+                        ListRepository.ListUser(opcao);
                         break;
                     case 4:
                         NewSubject();
@@ -188,7 +192,7 @@ namespace Projeto_Escola.Repositories
             Console.WriteLine("#                                     #");
             Console.WriteLine("#*************************************#");
             Console.WriteLine();            
-
+                        
             Console.WriteLine("Favor informar o nome completo");
             string name = Console.ReadLine();
             Console.WriteLine("Favor informar o numero de contribuinte - nif");
@@ -204,11 +208,13 @@ namespace Projeto_Escola.Repositories
             Console.WriteLine("Favor informar a senha");
             string password = Console.ReadLine();
             Console.WriteLine("Favor informar o tipo de usuário (Teacher or Student)");
-            string type = Console.ReadLine();
+            Console.WriteLine("1 - For Teacher");
+            Console.WriteLine("2 - For Student");
+            PersonType type = Enum.Parse<PersonType>(Console.ReadLine());           
             string queryInsert = $"INSERT INTO [User] (name, nif, email, adress, phone, [User], password, type )" +
                                  $" Values ('{name}', '{nif}', '{email}', '{adress}', '{phone}', '{login}', '{password}', '{type}')";
-
             RegisterRepository.UserRegister(queryInsert);
+            Person person = new(name, nif, email, adress, phone, login, password);           
             ScreenRepository.InitSystem();
         }
         public void NewSubject()

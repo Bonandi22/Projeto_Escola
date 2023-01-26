@@ -14,5 +14,13 @@ namespace Projeto_Escola.Models
         public string Time_Subjects { get; set; }
         public int User_Id { get; set; }
 
+        public Classe() { }
+        public Classe(int iD, string subjects, string time_Subjects, int user_Id)
+        {
+            ID = iD;
+            Subjects = subjects;
+            Time_Subjects = time_Subjects;
+            User_Id = user_Id;
+        }
     }
 }
